@@ -103,6 +103,14 @@ var requirejs, require, define;
             fileName = process.argv[3];
         }
     }
+    else if (typeof window !== "undefined" && navigator && document) {
+        env = 'browser';
+
+        readFile = function (){};
+        exec = function (){};
+        exists = function () {};
+        fileName = 'app.build.js';
+    }
 
     //INSERT require.js
 
